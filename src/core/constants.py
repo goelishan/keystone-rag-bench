@@ -17,3 +17,24 @@ class MetaDataKeys(str, Enum):
   SECTION="section"
 
 
+## -------- Subject IDs --------
+SUBJECT_EVERYDAY_PHYSICS_V1 = "everyday_physics_puzzles_v1"
+
+# -------- Chunking --------
+DEFAULT_CHUNK_SIZE = 500
+DEFAULT_CHUNK_OVERLAP = 120
+
+# -------- Metadata keys (internal contract) --------
+META_SUBJECT = "subject"
+META_SOURCE_ID = "source_id"
+META_SOURCE_TITLE = "source_title"
+META_PAGE = "page"
+META_CHUNK_INDEX = "chunk_index"
+META_START_CHAR = "start_char"
+META_END_CHAR = "end_char"
+
+# -------- Filenames --------
+CHUNKS_FILENAME = "chunks.json"
+EMBEDDINGS_FILENAME = "embeddings.npy"
+METADATA_FILENAME = "metadata.json"
+FAISS_INDEX_FILENAME = "faiss.index"

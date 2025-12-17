@@ -1,0 +1,22 @@
+{
+  "everyday_physics_puzzles_v1": {
+    "description": "Conceptual and puzzle-based physics problems with qualitative explanations",
+    "sources": [
+      {
+        "id": "puzzling_physics_200",
+        "title": "200 Puzzling Problems in Physics",
+        "path": "/content/keystone-rag-bench/docs/raw/physics_books/200_puzzling_problems_in_physics.pdf"
+      },
+      {
+        "id": "flying_circus_physics",
+        "title": "The Flying Circus of Physics",
+        "path": "/content/keystone-rag-bench/docs/raw/physics_books/flying_circus_of_physics.pdf"
+      },
+      {
+        "id": "povey_perplexing_problems",
+        "title": "Professor Povey’s Perplexing Problems",
+        "path": "/content/keystone-rag-bench/docs/raw/physics_books/professor_poveys_perplexing_problems.pdf"
+      }
+    ]
+  }
+}
