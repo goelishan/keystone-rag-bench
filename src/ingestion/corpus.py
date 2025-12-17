@@ -10,9 +10,9 @@ class corpus_source:
   path: str
   description: str
 
-def get_corpus(subject: str) -> List[corpus_source]:
+def load_corpus(subject: str) -> List[corpus_source]:
   
-  registry_path=Path("/content/keystone-rag-bench/docs/corpus_registry.json")
+  registry_path=Path("/content/keystone-rag-bench/data/corpus_registry.json")
 
   with open(registry_path,"r",encoding="utf-8") as f:
     registry=json.load(f)

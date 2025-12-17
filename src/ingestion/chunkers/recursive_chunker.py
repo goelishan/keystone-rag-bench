@@ -31,9 +31,9 @@ class recursive_chunker:
           "metadata":{
             META_SUBJECT:subject,
             META_SOURCE_ID:source.id,
-            META_SOURCE_TITLE:source.title
+            META_SOURCE_TITLE:source.title,
             META_PAGE:page,
-            META_CHUNK_INDEX:idx
+            META_CHUNK_INDEX:idx,
             META_START_CHAR:start,
             META_END_CHAR:min(end,len(text))
           }
