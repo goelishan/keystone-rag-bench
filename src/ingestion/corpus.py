@@ -1,14 +1,14 @@
 import json
 from pathlib import Path
-from dataclass import dataclass
+from dataclasses import dataclass
 from typing import List
 
 
 @dataclass(frozen=True)
 class corpus_source:
-  name: str
+  id: str
+  title: str
   path: str
-  description: str
 
 def load_corpus(subject: str) -> List[corpus_source]:
   

@@ -1,24 +1,16 @@
-from typing import Iterator, Tuple
 from pathlib import Path
 from PyPDF2 import PdfReader
 
 
-def load_pdf_by_page(pdf_path: str | Path) -> Iterator[Tuple[int, str]]:
-  pdf_path = Path(pdf_path)
+def load_pdf_by_page(pdf_path: str):
+    path = Path(pdf_path)
 
-  if not pdf_path.exists():
-    raise FileNotFoundError(f"PDF not found: {pdf_path}")
+    if not path.exists():
+        raise FileNotFoundError(f"PDF not found: {path}")
 
-  reader = PdfReader(str(pdf_path))
+    reader = PdfReader(path)
 
-  for page_number, page in enumerate(reader.pages, start=1):
-    try:
-      text = page.extract_text()
-        # Explicit failure visibility
-    except Exception as e:
-      raise RuntimeError(
-        f"Failed to extract text from {pdf_path.name}, page {page_number}"
-    ) from e
-
-      if text and text.strip():
-          yield page_number, text
+    for i, page in enumerate(reader.pages):
+        text = page.extract_text()
+        if text and text.strip():
+            yield i + 1, text

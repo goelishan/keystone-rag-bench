@@ -1,22 +1,19 @@
 {
-  "everyday_physics_puzzles_v1": {
-    "description": "Conceptual and puzzle-based physics problems with qualitative explanations",
+  "cloud_devops_docs_v1": {
+    "description": "AWS cloud architecture, security, and operational best practices",
     "sources": [
       {
-        "id": "puzzling_physics_200",
-        "title": "200 Puzzling Problems in Physics",
-        "path": "data/raw/everyday_physics_puzzles_v1/200_puzzling_problems_in_physics.pdf"
+        "id": "aws_well_architected",
+        "title": "AWS Well-Architected Framework",
+        "path": "data/raw/cloud_devops_docs_v1/AWS_Well-Architected_Framework.pdf"
       },
       {
-        "id": "flying_circus_physics",
-        "title": "The Flying Circus of Physics",
-        "path": "data/raw/everyday_physics_puzzles_v1/flying_circus_of_physics.pdf"
-      },
-      {
-        "id": "povey_perplexing_problems",
-        "title": "Professor Povey’s Perplexing Problems",
-        "path": "data/raw/everyday_physics_puzzles_v1/professor_poveys_perplexing_problems.pdf"
+        "id": "aws_security_best_practices",
+        "title": "AWS Security Best Practices",
+        "path": "data/raw/cloud_devops_docs_v1/aws-security-best-practices.pdf"
       }
     ]
   }
 }
+
+

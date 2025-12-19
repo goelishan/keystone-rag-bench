@@ -18,7 +18,7 @@ class MetaDataKeys(str, Enum):
 
 
 ## -------- Subject IDs --------
-SUBJECT_EVERYDAY_PHYSICS_V1 = "everyday_physics_puzzles_v1"
+SUBJECT_CLOUD_DEVOPS_DOCS_V1 = "cloud_devops_docs_v1"
 
 # -------- Chunking --------
 DEFAULT_CHUNK_SIZE = 500
