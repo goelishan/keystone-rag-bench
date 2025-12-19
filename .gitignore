@@ -1,0 +1,12 @@
+cat << 'EOF' >> .gitignore
+# Generated data
+data/processed/
+data/raw/**/*.pdf
+
+# Python
+__pycache__/
+*.pyc
+
+# Colab
+.ipynb_checkpoints/
+EOF
