@@ -1,12 +1,13 @@
-cat << 'EOF' >> .gitignore
-# Generated data
-data/processed/
-data/raw/**/*.pdf
+# macOS
+.DS_Store
 
 # Python
 __pycache__/
 *.pyc
 
-# Colab
+# Data (never commit)
+data/raw/
+data/processed/
+
+# Notebooks
 .ipynb_checkpoints/
-EOF

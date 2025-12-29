@@ -11,29 +11,33 @@ from ingestion.chunkers.recursive_chunker import recursive_chunker
 
 
 def run_ingestion(subject: str):
-    out_dir = Path("data/processed") / subject
-    out_dir.mkdir(parents=True, exist_ok=True)
+    try:
+        out_dir = Path("data/processed") / subject
+        out_dir.mkdir(parents=True, exist_ok=True)
 
-    out_file = out_dir / CHUNKS_FILENAME
+        out_file = out_dir / CHUNKS_FILENAME
 
-    chunker = recursive_chunker()
-    all_chunks = []
+        chunker = recursive_chunker()
+        all_chunks = []
 
-    for source in load_corpus(subject):
-        for page, text in load_pdf_by_page(source.path):
-            chunks = chunker.chunk(
-                text=text,
-                subject=subject,
-                source=source,
-                page=page
-            )
-            all_chunks.extend(chunks)
+        for source in load_corpus(subject):
+            for page, text in load_pdf_by_page(source.path):
+                chunks = chunker.chunk(
+                    text=text,
+                    subject=subject,
+                    source=source,
+                    page=page
+                )
+                all_chunks.extend(chunks)
 
-    with open(out_file, "w", encoding="utf-8") as f:
-        json.dump(all_chunks, f, indent=2, ensure_ascii=False)
+        with open(out_file, "w", encoding="utf-8") as f:
+            json.dump(all_chunks, f, indent=2, ensure_ascii=False)
 
-    print(f"{subject} ingested {len(all_chunks)} chunks!")
+        print(f"{subject} ingested {len(all_chunks)} chunks!")
 
+    except Exception as e:
+        print(f"Ingestion failed for subject '{subject}': {e}")
+        raise
 
 if __name__ == "__main__":
     run_ingestion(SUBJECT_CLOUD_DEVOPS_DOCS_V1)

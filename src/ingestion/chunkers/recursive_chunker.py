@@ -16,14 +16,35 @@ class recursive_chunker:
         self.chunk_overlap = chunk_overlap
 
     def chunk(self, text, subject, source, page):
+        """
+        Splits the input text into overlapping chunks of specified size 
+        and attaches relevant metadata to each chunk.
+
+        Args:
+            text (str): The input text to be chunked.
+            subject (str): Corpus subject for metadata.
+            source (Any): Source object containing 'id' and 'title'.
+            page (int): Page number within the source.
+
+        Returns:
+            List[dict]: List of chunk dictionaries with metadata.
+        """
+        if not isinstance(text, str):
+            raise ValueError("Input 'text' must be a string.")
+        if not text.strip():
+            return []
+
+        text_len = len(text)
         chunks = []
         start = 0
         idx = 0
+        step = self.chunk_size - self.chunk_overlap
+        if step <= 0:
+            raise ValueError("chunk_overlap must be smaller than chunk_size.")
 
-        while start < len(text):
-            end = start + self.chunk_size
+        while start < text_len:
+            end = min(start + self.chunk_size, text_len)
             chunk_text = text[start:end].strip()
-
             if chunk_text:
                 chunks.append({
                     "id": f"{subject}_{source.id}_p{page}_c{idx}",
@@ -35,12 +56,10 @@ class recursive_chunker:
                         META_PAGE: page,
                         META_CHUNK_INDEX: idx,
                         META_START_CHAR: start,
-                        META_END_CHAR: min(end, len(text))
+                        META_END_CHAR: end
                     }
                 })
                 idx += 1
-
-            
-            start += self.chunk_size - self.chunk_overlap
+            start += step
 
         return chunks

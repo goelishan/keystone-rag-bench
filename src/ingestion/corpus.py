@@ -11,20 +11,27 @@ class corpus_source:
   path: str
 
 def load_corpus(subject: str) -> List[corpus_source]:
-  
-  registry_path=Path("/content/keystone-rag-bench/data/corpus_registry.json")
-
-  with open(registry_path,"r",encoding="utf-8") as f:
-    registry=json.load(f)
+    registry_path = Path("data/corpus_registry.json")
+    try:
+        with open(registry_path, "r", encoding="utf-8") as f:
+            registry = json.load(f)
+    except FileNotFoundError:
+        raise FileNotFoundError(f"Registry file not found at {registry_path}")
+    except json.JSONDecodeError:
+        raise ValueError(f"Failed to decode JSON from {registry_path}")
 
     if subject not in registry:
-      raise ValueError(f"Unknown corpus subject {subject}")
+        raise ValueError(f"Unknown corpus subject {subject}")
 
-    return[
-      corpus_source(
-        id=s["id"],
-        title=s["title"],
-        path=s["path"]
-      )
-      for s in registry[subject]["sources"]
-    ]
+    try:
+        sources = registry[subject]["sources"]
+        return [
+            corpus_source(
+                id=s["id"],
+                title=s["title"],
+                path=s["path"]
+            )
+            for s in sources
+        ]
+    except (KeyError, TypeError) as e:
+        raise ValueError(f"Invalid format for sources in subject '{subject}': {e}")

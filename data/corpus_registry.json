@@ -5,12 +5,12 @@
       {
         "id": "aws_well_architected",
         "title": "AWS Well-Architected Framework",
-        "path": "data/raw/cloud_devops_docs_v1/AWS_Well-Architected_Framework.pdf"
+        "path": "data/raw/aws_cloud_ops/wellarchitected-framework.pdf"
       },
       {
         "id": "aws_security_best_practices",
         "title": "AWS Security Best Practices",
-        "path": "data/raw/cloud_devops_docs_v1/aws-security-best-practices.pdf"
+        "path": "data/raw/aws_cloud_ops/aws-security-best-practices.pdf"
       }
     ]
   }
