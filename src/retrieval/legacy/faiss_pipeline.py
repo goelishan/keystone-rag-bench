@@ -1,3 +1,15 @@
+"""
+DEPRECATED
+
+This module has been superseded by:
+- retrieval.dense.DenseRetriever
+- retrieval.pipeline.RetrievalPipeline
+
+Kept for historical reference only.
+Do not use in new code.
+"""
+
+
 from retrieval.faiss_retrieval import FaissRetrieval
 from retrieval.interfaces import RetrievalConfig
 

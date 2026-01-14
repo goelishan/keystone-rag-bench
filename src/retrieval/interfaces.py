@@ -1,13 +1,11 @@
 from abc import ABC, abstractmethod
 from typing import List
-
+from dataclasses import dataclass
 from core.models import RetrievalResult
 
-
+@dataclass(frozen=True)
 class RetrievalConfig:
-    def __init__(self, top_k: int, alpha: float | None = None):
-        self.top_k = top_k
-        self.alpha = alpha
+    top_k: int=5
 
 
 class Retriever(ABC):
